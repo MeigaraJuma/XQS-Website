@@ -185,7 +185,11 @@ footer .col-footer-3 a:hover{color:#0aac8e;}
 
 @media all and (max-width: 768px){
 	.copyright{text-align: center;}
-	.copyright ul.quick-link{float: none;margin-top: 10px;}
+    .copyright ul.quick-link{float: none;margin-top: 10px;}
+    .view-enter,.view-leave {
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+      }
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -228,3 +232,30 @@ a.button:hover{background-color: #eee;color: #333;}
 /* ---------------------------------------------------------------------------- */
 /* ----------------------------------Responsive-------------------------------- */
 /* ---------------------------------------------------------------------------- */
+
+.view-enter,.view-leave {
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+    -webkit-transition:all .5s;
+    transition:all .5s;
+  }
+  .view-enter {
+    left:20px;
+    opacity:0;
+    position:absolute;
+    top:0;
+  }
+  .view-enter.view-enter-active {
+    left:0;
+    opacity:1;
+  }
+  .view-leave {
+    left:0;
+    opacity:1;
+    position:absolute;
+    top:0;
+  }
+  .view-leave.view-leave-active {
+    left:-20px;
+    opacity:0;
+  }

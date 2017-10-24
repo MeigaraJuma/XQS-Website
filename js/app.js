@@ -1,18 +1,22 @@
 'use strict';
 // angular.js main app initialization
-var app = angular.module('app', []).
+var app = angular.module('app', []);
     config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
-        when('/', { templateUrl: 'index.html', activetab: 'projects', controller: HomeCtrl }).
-        when('/project/:projectId', {
-          templateUrl: function (params) { return 'pages/' + params.projectId + '.html'; },
-          controller: ProjectCtrl,
-          activetab: 'projects'
-        }).
-        when('/privacy', {
-          templateUrl: 'pages/privacy.html',
-          controller: PrivacyCtrl,
-          activetab: 'privacy'
+      when('/', {
+        templateUrl: 'index.html',
+        controller: HomeCtrl,
+        activetab: 'projects'
+      }).
+      when('/project/:projectId', {
+        templateUrl: function (params) { return 'pages/' + params.projectId + '.html'; },
+        controller: ProjectCtrl,
+        activetab: 'projects'
+      }).
+        when('/menu', {
+          templateUrl: 'pages/contact.html',
+          controller: MenuCtrl,
+          activetab: 'menu'
         }).
         when('/about', {
           templateUrl: 'pages/about.html',

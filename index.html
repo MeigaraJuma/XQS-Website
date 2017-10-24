@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<html lang="en" ng-app="app" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
     <!-- Basic Page Needs -->
@@ -25,53 +22,39 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		
 	<!-- Javascript -->
-	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script src="js/jssor.slider-26.3.0.min.js" type="text/javascript"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jssor.slider-26.3.0.min.js"></script>
 	<script src="js/jssor-custom.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/angular.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controller/MainController.js"></script>	
 	
-	<!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/Items/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-        </a>
-      </div>
-    <![endif]-->
-    <!--[if lt IE 9]>
-		<script src="js/html5.js"></script>
-		<script src="js/css3-mediaqueries.js"></script>
-	<![endif]-->
-	
 </head>
 
-<body data-ng-app="app" class="home-page">
-	<div data-ng-controller="MainController" class="wrap-body">
+<body class="home-page">
+	<div ng-controller="MainController" class="wrap-body">
 		<div class="header">
 			<div id="cssmenu">
 				<ul>
-				   <li class="active"><a href="index.html"><span>XQS Garage Coffee</span></a></li>
-				   <li class="has-sub"><a href="#"><span>MENU</span></a>
-					  <ul>
-						 <li class="has-sub"><a href="#"><span>{{ menu.coffee }}</span></a>
-							<ul>
-							   <li><a href="#"><span>{{coffee.espressobased}}</span></a></li>
-							   <li><a href="#"><span>Espresso-Milk</span></a></li>
-							   <li><a href="#"><span>Classic Style</span></a></li>
-							   <li class="last"><a href="#"><span>Manual Brew</span></a></li>
-							</ul>
-						 </li>
-						 <li><a href="#"><span>Chocolate</span></a>
-						 </li>
-						 <li><a href="#"><span>Food & Snack</span></a>
-						 </li>
-					  </ul>
+				   <li class="active"><a id="xqs" href="#!/" ng-class="{activeSmall:part == 'xqs'}"><span>XQS Garage Coffee</span></a></li>
+				   <li class="has-sub"><a id="menu" href="#!/menu" ng-class="{activeSmall:part == 'menu'}"><span>MENU</span></a>
+					  	<ul>
+						 	<li class="has-sub"><a href="#"><span>{{ menu.coffee }}</span></a>
+								<ul>
+							   		<li><a href="#"><span>Espresso-Based</span></a></li>
+							   		<li><a href="#"><span>Espresso-Milk</span></a></li>
+							   		<li><a href="#"><span>Classic Style</span></a></li>
+							   		<li class="last"><a href="#"><span>Manual Brew</span></a></li>
+								</ul>
+							</li>
+							<li><a href="#"><span>{{ menu.chocolate }}</span></a></li>
+							<li><a href="#"><span>{{ menu.FS }}</span></a></li>
+						</ul>
 				   </li>
-				   <li><a href="order.html"><span>ORDER</span></a></li>
-				   <li><a href="about.html"><span>ABOUT</span></a></li>
-				   <li class="last"><a href="contact.html"><span>CONTACT</span></a></li>
+				   <li><a id="order" href="#!/order" ng-class="{activeSmall:part == 'order'}"><span>ORDER</span></a></li>
+				   <li><a id="about" href="#!/about" ng-class="{activeSmall:part == 'about'}"><span>ABOUT</span></a></li>
+				   <li class="last"><a id="contact" href="#!/about" ng-class="{activeSmall:part == 'contact'}"><span>CONTACT</span></a></li>
 				</ul>
 			</div>
 			<div class="custom-banner">
@@ -302,6 +285,11 @@
 			</div>
 		</section>
 		
+		<!-- Main Content -->
+		<div style="position:relative">
+				<div style="width:100%" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
+		</div>
+
 		<!--Footer-->
 		<footer>
 			<!--<div class="zerogrid wrap-footer">
