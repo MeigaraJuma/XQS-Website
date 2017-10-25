@@ -1,13 +1,8 @@
-app.config(['$routeProvider', function($routeProvider) {
+app.config(function($routeProvider) {
       $routeProvider
       .when('/', {
-        templateUrl: 'index.html',
+        templateUrl: 'pages/index.html',
         //controller: HomeCtrl,
-        //activetab: 'projects'
-      })
-      .when('/project/:projectId', {
-        templateUrl: function(params) { return 'pages/' + params.projectId + '.html'; },
-        controller: ProjectCtrl,
         //activetab: 'projects'
       })
       .when('/contact', {
@@ -19,11 +14,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'pages/about.html',
         //controller: AboutCtrl,
         //activetab: 'about'
-      })
-      .otherwise({ redirectTo: '/' });
-    }]);
+      });
+    });
 
-app.run(['$rootScope', '$http', '$browser', '$timeout', "$route", function($scope, $http, $browser, $timeout, $route) {
+/*app.run(['$rootScope', '$http', '$browser', '$timeout', "$route", function($scope, $http, $browser, $timeout, $route) {
     $scope.$on("$routeChangeSuccess", function(scope, next, current) {
     $scope.part = $route.current.activetab;
     });
@@ -44,8 +38,9 @@ app.run(['$rootScope', '$http', '$browser', '$timeout', "$route", function($scop
           });
     };
 }]);
-
+*/
 
 app.config(['$locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode(true); 
     $locationProvider.hashPrefix('!');
-}]);
+  }]);

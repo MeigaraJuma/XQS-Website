@@ -22,27 +22,28 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		
 	<!-- Javascript -->
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/jssor.slider-26.3.0.min.js"></script>
 	<script src="js/jssor-custom.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/angular.min.js"></script>
-	<script src="js/angular-route.min.js"></script>
-	<script src="js/route.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/controller/MainController.js"></script>	
+	<script src="js/script.js"></script>
+	<script src="js/controller/MainController.js"></script>
+	<script src="js/route.js"></script>
+		
 	
 </head>
 
-<body class="home-page">
-	<div ng-controller="MainController" class="wrap-body">
+<body ng-controller="MainController" class="home-page">
+	<div class="wrap-body">
 		<div class="header">
 			<div id="cssmenu">
 				<ul>
-				   <li class="active"><a id="xqs" href="#!/" ng-class="{activeSmall:part == 'xqs'}"><span>XQS Garage Coffee</span></a></li>
-				   <li class="has-sub"><a id="menu" href="#!/menu" ng-class="{activeSmall:part == 'menu'}"><span>MENU</span></a>
+				   <li class="active"><a id="xqs" href="#!" ng-class="{activeSmall:part == 'xqs'}"><span>XQS Garage Coffee</span></a></li>
+				   <li class="has-sub"><a id="menu" href="#!menu" ng-class="{activeSmall:part == 'menu'}"><span>MENU</span></a>
 					  	<ul>
-						 	<li class="has-sub"><a href="#!/"><span>{{ menu.coffee }}</span></a>
+						 	<li class="has-sub"><a href="#!"><span>{{ menu.coffee }}</span></a>
 								<ul>
 							   		<li><a href="#"><span>Espresso-Based</span></a></li>
 							   		<li><a href="#"><span>Espresso-Milk</span></a></li>
@@ -50,12 +51,12 @@
 							   		<li class="last"><a href="#"><span>Manual Brew</span></a></li>
 								</ul>
 							</li>
-							<li><a href="#!/"><span>{{ menu.chocolate }}</span></a></li>
-							<li><a href="#!/"><span>{{ menu.FS }}</span></a></li>
+							<li><a href="#!"><span>{{ menu.chocolate }}</span></a></li>
+							<li><a href="#!"><span>{{ menu.FS }}</span></a></li>
 						</ul>
 				   </li>
-				   <li><a id="order" href="#!/order" ng-class="{activeSmall:part == 'order'}"><span>ORDER</span></a></li>
-				   <li><a id="about" href="#!/about" ng-class="{activeSmall:part == 'about'}"><span>ABOUT</span></a></li>
+				   <li><a id="order" href="#!order" ng-class="{activeSmall:part == 'order'}"><span>ORDER</span></a></li>
+				   <li><a id="about" href="#!about" ng-class="{activeSmall:part == 'about'}"><span>ABOUT</span></a></li>
 				   <li class="last"><a id="contact" href="#!/contact" ng-class="{activeSmall:part == 'contact'}"><span>CONTACT</span></a></li>
 				</ul>
 			</div>
@@ -64,10 +65,7 @@
 			</div>
 		</div>
 
-		<div>
-			<div ng-view></div>
-		</div>
-		
+
 		<!-- Main Content -->
 		<div style="position:relative">
 				<div style="width:100%" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>

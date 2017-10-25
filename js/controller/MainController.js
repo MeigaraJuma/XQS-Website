@@ -1,5 +1,3 @@
-'use strict'
-
 app.controller('MainController',['$scope',function($scope){
     $scope.menu={
         coffee: 'Coffee',
@@ -8,7 +6,7 @@ app.controller('MainController',['$scope',function($scope){
     };
 }]);
 
-
+/*
 function HomeCtrl($scope, $http) {
 }
 
@@ -20,3 +18,4 @@ function MenuCtrl($scope, $http, $timeout) {
 
 function AboutCtrl($scope, $http, $timeout) {
 }
+*/
